@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astra-claw"
+version = "0.4.0"
+description = "A user-hosted mod-free Astra Factorio teammate in an isolated display"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["PyJWT[crypto]>=2.10,<3"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+astra-claw = "astra_engineer.visual_cli:main"
+
+[tool.setuptools.packages.find]
+include = ["astra_engineer*"]
+
+[tool.setuptools.package-data]
+astra_engineer = ["visual_dashboard.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
